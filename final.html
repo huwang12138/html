@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<style>
+  #myContainer {
+    width: 390px;
+    height: 844px;
+    position: relative;
+    background-image: url("https://raw.githubusercontent.com/huwang12138/markdown-picture/main/202204031506770.png");
+    background-size: cover;
+  }
+  #myAnimation {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    background-color: #6aa970;
+    border-radius: 50%
+  }
+  #myAnimation2 {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    background-color: #6aa970;
+    border-radius: 50%
+  }
+  #myAnimation3 {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    background-color: #6aa970;
+    border-radius: 50%
+  }
+  #myAnimation4 {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    background-color: #6aa970;
+    border-radius: 50%
+  }
+
+
+</style>
+<body>
+
+<div id ="myContainer">
+<div id ="myAnimation"></div>
+<div id ="myAnimation2"></div>
+<div id ="myAnimation3"></div>
+<div id ="myAnimation4"></div>
+</div>
+
+<script>
+var id = null;
+function myMove() {
+  var x0 = 340;
+  var y0 = 125;
+  var size = 136;
+  var r = 4;
+  var step = 1;
+  var elem = document.getElementById("myAnimation");
+  var elem2 = document.getElementById("myAnimation2");
+  var elem3 = document.getElementById("myAnimation3");
+  var elem4 = document.getElementById("myAnimation4");
+  var pos = 0;
+  var tag = 1; // 1-right, 2-down, 3-left, 4-up
+  var x = 0 + x0;
+  var y = 0 + y0;
+
+  var tag2 = 2; // 1-right, 2-down, 3-left, 4-up
+  var x2 = x0 + size - r;
+  var y2 = 0 + y0;
+
+  var tag3 = 4; // 1-right, 2-down, 3-left, 4-up
+  var x3 = x0 + 0;
+  var y3 = y0 + size -r;
+
+  var tag4 = 3; // 1-right, 2-down, 3-left, 4-up
+  var x4 = x0 + size - r;
+  var y4 = y0 + size - r;
+
+  clearInterval(id);
+  id = setInterval(frame, 10);
+  function frame() {
+    /* if (pos == 400) {
+      clearInterval(id);
+    } else {
+      pos++;
+      elem.style.top = pos + 'px';
+      elem.style.left = pos + 'px';
+    }*/
+
+    if (tag == 1) {
+      if (y < y0 + size - r) {
+        y = y + step;
+        elem.style.top = x + 'px';
+        elem.style.left = y + 'px';
+      }
+      if (y == y0 + size - r) {
+        tag = 2
+      }
+    }
+    if (tag == 2) {
+      if (x < x0 + size - r) {
+        x = x + step;
+        elem.style.top = x + 'px';
+        elem.style.left = y + 'px';
+      }
+      if (x == x0 + size - r) {
+        tag = 3
+      }
+    }
+    if (tag == 3) {
+      if (y > y0) {
+        y = y - step;
+        elem.style.top = x + 'px';
+        elem.style.left = y + 'px';
+      }
+      if (y == y0) {
+        tag = 4
+      }
+    }
+    if (tag == 4) {
+      if (x > x0) {
+        x = x - step;
+        elem.style.top = x + 'px';
+        elem.style.left = y + 'px';
+      }
+      if (x == x0) {
+        tag = 1
+      }
+    }
+
+
+    if (tag2 == 1) {
+      if (y2 < y0 + size - r) {
+        y2 = y2 + step;
+        elem2.style.top = x2 + 'px';
+        elem2.style.left = y2 + 'px';
+      }
+      if (y2 == y0 + size - r) {
+        tag2 = 2
+      }
+    }
+    if (tag2 == 2) {
+      if (x2 < x0 + size - r) {
+        x2 = x2 + step;
+        elem2.style.top = x2 + 'px';
+        elem2.style.left = y2 + 'px';
+      }
+      if (x2 == x0 + size - r) {
+        tag2 = 3
+      }
+    }
+    if (tag2 == 3) {
+      if (y2 > y0) {
+        y2 = y2 - step;
+        elem2.style.top = x2 + 'px';
+        elem2.style.left = y2 + 'px';
+      }
+      if (y2 == y0) {
+        tag2 = 4
+      }
+    }
+    if (tag2 == 4) {
+      if (x2 > x0) {
+        x2 = x2 - step;
+        elem2.style.top = x2 + 'px';
+        elem2.style.left = y2 + 'px';
+      }
+      if (x2 == x0) {
+        tag2 = 1
+      }
+    }
+
+
+
+    if (tag3 == 1) {
+      if (y3 < y0 + size - r) {
+        y3 = y3 + step;
+        elem3.style.top = x3 + 'px';
+        elem3.style.left = y3 + 'px';
+      }
+      if (y3 == y0 + size - r) {
+        tag3 = 2
+      }
+    }
+    if (tag3 == 2) {
+      if (x3 < x0 + size - r) {
+        x3 = x3 + step;
+        elem3.style.top = x3 + 'px';
+        elem3.style.left = y3 + 'px';
+      }
+      if (x3 == x0 + size - r) {
+        tag3 = 3
+      }
+    }
+    if (tag3 == 3) {
+      if (y3 > y0) {
+        y3 = y3 - step;
+        elem3.style.top = x3 + 'px';
+        elem3.style.left = y3 + 'px';
+      }
+      if (y3 == y0) {
+        tag3 = 4
+      }
+    }
+    if (tag3 == 4) {
+      if (x3 > x0) {
+        x3 = x3 - step;
+        elem3.style.top = x3 + 'px';
+        elem3.style.left = y3 + 'px';
+      }
+      if (x3 == x0) {
+        tag3 = 1
+      }
+    }
+
+
+    if (tag4 == 1) {
+      if (y4 < y0 + size - r) {
+        y4 = y4 + step;
+        elem4.style.top = x4 + 'px';
+        elem4.style.left = y4 + 'px';
+      }
+      if (y4 == y0 + size - r) {
+        tag4 = 2
+      }
+    }
+    if (tag4 == 2) {
+      if (x4 < x0 + size - r) {
+        x4 = x4 + step;
+        elem4.style.top = x4 + 'px';
+        elem4.style.left = y4 + 'px';
+      }
+      if (x4 == x0 + size - r) {
+        tag4 = 3
+      }
+    }
+    if (tag4 == 3) {
+      if (y4 > y0) {
+        y4 = y4 - step;
+        elem4.style.top = x4 + 'px';
+        elem4.style.left = y4 + 'px';
+      }
+      if (y4 == y0) {
+        tag4 = 4
+      }
+    }
+    if (tag4 == 4) {
+      if (x4 > x0) {
+        x4 = x4 - step;
+        elem4.style.top = x4 + 'px';
+        elem4.style.left = y4 + 'px';
+      }
+      if (x4 == x0) {
+        tag4 = 1
+      }
+    }
+
+
+
+
+  }
+}
+myMove()
+</script>
+
+</body>
+</html>
